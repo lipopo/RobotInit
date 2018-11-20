@@ -4,7 +4,7 @@ from log_app import app as log_app
 import thread
 import time
 
-if __name__ == "__main__":
+def main():
     thread.start_new_thread(log_app.__call__, ())
 
     try:
@@ -13,3 +13,5 @@ if __name__ == "__main__":
     except:
         pass
 
+if __name__ == "__main__":
+    main()

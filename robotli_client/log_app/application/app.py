@@ -13,6 +13,6 @@ def call():
         read_data = get_ip_info.readline()
         if read_data != "":
             log(read_data[:-1])
-        else:
-            f.write("不能获取ip信息，请确定使用Lin")
+        # else:
+            #f.write("不能获取ip信息，请确定使用Lin")
         time.sleep(10)

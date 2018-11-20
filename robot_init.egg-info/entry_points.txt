@@ -1,0 +1,3 @@
+[console_scripts]
+run-server = robot_init.runner.runner:main
+

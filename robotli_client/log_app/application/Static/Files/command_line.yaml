@@ -1,0 +1,7 @@
+main:
+
+  commands_exec:
+    - command_name: "frpc init"
+      command: "nohup { frpc path } -c  /home/pi/projects/frp/jd_frp/jd_frp.ini & >> /tmp/logeryy"
+      command_success_msg: "Init Frpc Success"
+      command_fail_msg: "Can't Init Frpc"
