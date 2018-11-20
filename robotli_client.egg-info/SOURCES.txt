@@ -1,3 +1,5 @@
+MANIFEST.in
+config.yaml
 setup.py
 robotli_client/__init__.py
 robotli_client/server.py
@@ -16,10 +18,13 @@ robotli_client/log_app/application/Modules/__init__.py
 robotli_client/log_app/application/Modules/log.py
 robotli_client/log_app/application/Modules/log_row.py
 robotli_client/log_app/application/Modules/main.py
+robotli_client/log_app/application/Static/Files/config.yaml
 robotli_client/log_app/application/Tools/__init__.py
 robotli_client/log_app/application/Tools/CommonTools/__init__.py
 robotli_client/log_app/application/Tools/CommonTools/app.py
 robotli_client/log_app/application/Tools/CommonTools/get_info.py
 robotli_client/log_app/application/Tools/CommonTools/register_app.py
+robotli_client/log_app/application/Tools/CommonTools/template.py
+robotli_client/log_app/application/Tools/CommonTools/translate_config.py
 robotli_client/runner/__init__.py
 robotli_client/runner/runner.py

@@ -1,0 +1,3 @@
+include *.yaml
+exclude *.pyc
+recursive-include robotli_client/log_app/application/Static *

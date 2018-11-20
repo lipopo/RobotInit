@@ -6,21 +6,12 @@ import os
 """
 静态资源
 """
-__web_url__ = "http://www.lipocmma.cn:16616/log_web"
-__log_url__ = __web_url__ + "/log"
-__status_url__ = __web_url__ + "/status"
-
-__user_name__ = "lipo"
-__user_passwd__ = "lipo8081"
-
-__mac_name__ = "树莓小PI001"
 STATIC_PATH = os.path.join(os.path.dirname(__file__), "Static")
+STATIC_FILES_PATH = os.path.join(STATIC_PATH, "Files")
 
-BUCKET_PATH = "/tmp/buckets"
-__bucket_port__ = 8991
-__bucket_license__ = "8069351278"
+# 配置文件目录
+CONFIG_FILE_PATH = os.path.join(STATIC_FILES_PATH, "config.yaml")
 
-exec_command = "ifconfig eth0 | grep 'netmask' | awk '{print $2}'"
 """
 动态共享资源
 """
@@ -32,8 +23,36 @@ exec_command = "ifconfig eth0 | grep 'netmask' | awk '{print $2}'"
 # 公用工具箱
 import requests
 import time
+import jinja2
+import yaml
+from collections import namedtuple
 
 # 本地工具箱
+from .Tools.CommonTools.template import ConfigTemplate
+from .Tools.CommonTools.translate_config import translate_config
+"""
+配置文件加载-------------------------------------------------
+"""
+Config = namedtuple("Config", ["commands"])
+CommandConfig = namedtuple("CommandConfig", ["command_name", "command", "command_success_msg", "command_fail_msg"])
+
+config_dict = yaml.load(open(CONFIG_FILE_PATH if os.path.exists(CONFIG_FILE_PATH) else os.path.join(".", "config.yaml"), "r"))
+all_configs = translate_config(None, config_dict)
+
+get_config = lambda config_name: ConfigTemplate(config_dict=all_configs,source= all_configs.get(config_name, "")).render_value
+
+config = Config(commands=config_dict.get("commands_exec", []))
+
+# 指令列表
+commands = [
+    CommandConfig(**command)
+    for command in config.commands
+]
+
+"""
+------------------------------------------------------------
+"""
+
 """
 应用初始化部分------------------------------------------------
 """
