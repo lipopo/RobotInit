@@ -4,17 +4,15 @@ from setuptools import setup, find_packages
 
 
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 install_requires = [
     "requests",
-    "pyyaml",
-    "jinja2"
+    "pyyaml"
 ]
 
-
 setup(
-    name="robotli_client",
+    name="robotli_init",
     version=__version__,
     install_requires=install_requires,
     author="lipo",
@@ -24,10 +22,10 @@ setup(
     packages= find_packages(),
     include_package_data=True,
     description="Use for init robot",
-    platform="any",
+    platforms="any",
     entry_points={
         "console_scripts": [
-            'run-server = robotli_client.server:main',
+            "robotli-client = robotli_init.robotli_client.server:main"
         ]
     }
 )

@@ -1,0 +1,3 @@
+[console_scripts]
+robotli-client = robotli_init.robotli_client.server:main
+
