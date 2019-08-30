@@ -9,7 +9,7 @@ def main():
 
     for command in commands:
         dlog(command.command_name + "\n")
-        # start_exec = os.system(ConfigTemplate(all_configs, command.command).render_value)
+        
         start_exec = os.system(row_render.render(command.command))
         if start_exec == 0:
             dlog(command.command_success_msg+ "\n\n")
